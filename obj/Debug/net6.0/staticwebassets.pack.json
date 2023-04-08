@@ -245,6 +245,38 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
+      "Id": "D:\\vs_project\\recruitment_agency\\wwwroot\\lib\\uikit\\css\\uikit-rtl.css",
+      "PackagePath": "staticwebassets\\lib\\uikit\\css\\uikit-rtl.css"
+    },
+    {
+      "Id": "D:\\vs_project\\recruitment_agency\\wwwroot\\lib\\uikit\\css\\uikit-rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\uikit\\css\\uikit-rtl.min.css"
+    },
+    {
+      "Id": "D:\\vs_project\\recruitment_agency\\wwwroot\\lib\\uikit\\css\\uikit.css",
+      "PackagePath": "staticwebassets\\lib\\uikit\\css\\uikit.css"
+    },
+    {
+      "Id": "D:\\vs_project\\recruitment_agency\\wwwroot\\lib\\uikit\\css\\uikit.min.css",
+      "PackagePath": "staticwebassets\\lib\\uikit\\css\\uikit.min.css"
+    },
+    {
+      "Id": "D:\\vs_project\\recruitment_agency\\wwwroot\\lib\\uikit\\js\\uikit-icons.js",
+      "PackagePath": "staticwebassets\\lib\\uikit\\js\\uikit-icons.js"
+    },
+    {
+      "Id": "D:\\vs_project\\recruitment_agency\\wwwroot\\lib\\uikit\\js\\uikit-icons.min.js",
+      "PackagePath": "staticwebassets\\lib\\uikit\\js\\uikit-icons.min.js"
+    },
+    {
+      "Id": "D:\\vs_project\\recruitment_agency\\wwwroot\\lib\\uikit\\js\\uikit.js",
+      "PackagePath": "staticwebassets\\lib\\uikit\\js\\uikit.js"
+    },
+    {
+      "Id": "D:\\vs_project\\recruitment_agency\\wwwroot\\lib\\uikit\\js\\uikit.min.js",
+      "PackagePath": "staticwebassets\\lib\\uikit\\js\\uikit.min.js"
+    },
+    {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.build.recruitment_agency.props",
       "PackagePath": "build\\recruitment_agency.props"
     },

@@ -7,6 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Views\Employer\detail.cshtml" />
+    <Content Remove="Views\Employer\index.cshtml" />
+    <Content Remove="Views\Employer\profile.cshtml" />
+    <Content Remove="Views\Employer\vacancy.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.11" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.11">
       <PrivateAssets>all</PrivateAssets>
@@ -22,7 +29,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="DAO\" />
+    <Folder Include="Views\Admin\" />
+    <Folder Include="Views\Applicant\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Views\Employer\detail.cshtml" />
+    <None Include="Views\Employer\index.cshtml" />
+    <None Include="Views\Employer\profile.cshtml" />
+    <None Include="Views\Employer\vacancy.cshtml" />
   </ItemGroup>
 
 </Project>

@@ -1,0 +1,12 @@
+.search {
+    margin: 40px;
+}
+
+.list {
+    margin: 0px 40px;
+}
+
+.list-item {
+    border-radius: 10px !important;
+    border: solid 3px;
+}
