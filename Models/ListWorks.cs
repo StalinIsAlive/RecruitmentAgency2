@@ -12,8 +12,8 @@ namespace recruitment_agency.Models
         public string Post { get; set; }
         public string Profession { get; set; }
         
-        //навесить вторичные ключи на id работника
-        //public int Applicant { get; set; }
-        //[ForeignKey("Applicant")]
+        //вторичные ключи на id работника
+        public int ApplicantId { get; set; }
+        public Applicant applicant { get; set; }
     }
 }

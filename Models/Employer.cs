@@ -12,5 +12,7 @@
         public string Password { get; set; }
 
         //вторичный ключ от типа компании(id)
+        public int CompanyType { get; set; }
+        public CompanyType companyType { get; set; }
     }
 }

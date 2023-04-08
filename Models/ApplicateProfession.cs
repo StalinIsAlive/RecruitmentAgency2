@@ -7,5 +7,7 @@
         public string Description { get; set; }
         
         //вторичный ключ компании которая подала заявкуы
+        public int Employer { get; set; }
+        public Employer employer { get; set; }
     }
 }
