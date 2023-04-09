@@ -8,7 +8,7 @@
         public bool isVisible { get; set; }
         
         //вторичный ключ предпочитаемой профессии
-        public int ProfessionId { get; set; }
+        public int ProfessionsId { get; set; }
         public Professions professions { get; set; }
         //вторичный ключ соискателя
         public int ApplicantId { get; set; }

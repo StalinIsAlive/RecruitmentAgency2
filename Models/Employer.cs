@@ -1,4 +1,6 @@
-﻿namespace recruitment_agency.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace recruitment_agency.Models
 { //работодатель
     public class Employer
     {
@@ -13,6 +15,7 @@
 
         //вторичный ключ от типа компании(id)
         public int CompanyType { get; set; }
-        public CompanyType companyType { get; set; }
+        [ForeignKey("CompanyType")]
+        public virtual CompanyType companyType { get; set; }
     }
 }

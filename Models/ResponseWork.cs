@@ -5,6 +5,7 @@
         //после одобрения заявки обеими сторонами,
         //последней из подтвердивших придёт уведомление с тектом который будет предложено ввести последнему
         public int Id { get; set; }
+        public string Description { get; set; }
         //вторичный ключ работника
         public int ApplicantId { get; set; }
         public Applicant applicant { get; set; }

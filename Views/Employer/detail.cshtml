@@ -1,16 +1,21 @@
-  <link rel="stylesheet" href="style.css">
+﻿@{
+    Resume resumes = ViewData["resume"] != null ? (Resume)ViewData["resume"] : null;
+    Object id = ViewData["id"];
+}
 
-<div class="uk-child-width-1-2@s">
-  <div>
-    <div class="uk-card uk-card-large uk-card-hover uk-card-body uk-card-default">
-      <h3 class="uk-card-title">Company name</h3>
-      <div>
-        Lorem bla bla
-      </div>
-      <div>
-        <button class="uk-button">Откликнуться</button>
-        <button class="uk-button">Назад</button>
-      </div>
+<link rel="stylesheet" href="style.css">
+
+<div class="uk-child-width-1-1@s">
+    <div>
+        <div class="uk-card uk-card-large uk-card-hover uk-card-body uk-card-default">
+            <h3 class="uk-card-title">@id</h3>
+            <div>
+                Lorem bla bla
+            </div>
+            <div>
+                <button class="uk-button">Откликнуться</button>
+                <a asp-action="Index" id="" class="uk-button uk-button-default">Назад</a>
+            </div>
+        </div>
     </div>
-  </div>
 </div>

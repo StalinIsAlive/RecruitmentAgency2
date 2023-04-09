@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using recruitment_agency.Data;
 
@@ -11,9 +12,10 @@ using recruitment_agency.Data;
 namespace recruitment_agency.Migrations
 {
     [DbContext(typeof(ReccruimentAgencyDbContext))]
-    partial class ReccruimentAgencyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230409175105_addDescriptionResponseWorkers")]
+    partial class addDescriptionResponseWorkers
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -173,9 +175,12 @@ namespace recruitment_agency.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("companyTypeId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("CompanyType");
+                    b.HasIndex("companyTypeId");
 
                     b.ToTable("employers");
                 });
@@ -311,7 +316,7 @@ namespace recruitment_agency.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ProfessionsId")
+                    b.Property<int>("ProfessionId")
                         .HasColumnType("int");
 
                     b.Property<double>("Salary")
@@ -320,11 +325,14 @@ namespace recruitment_agency.Migrations
                     b.Property<bool>("isVisible")
                         .HasColumnType("bit");
 
+                    b.Property<int>("professionsId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("ApplicantId");
 
-                    b.HasIndex("ProfessionsId");
+                    b.HasIndex("professionsId");
 
                     b.ToTable("resumes");
                 });
@@ -392,7 +400,7 @@ namespace recruitment_agency.Migrations
                 {
                     b.HasOne("recruitment_agency.Models.CompanyType", "companyType")
                         .WithMany()
-                        .HasForeignKey("CompanyType")
+                        .HasForeignKey("companyTypeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -450,7 +458,7 @@ namespace recruitment_agency.Migrations
 
                     b.HasOne("recruitment_agency.Models.Professions", "professions")
                         .WithMany()
-                        .HasForeignKey("ProfessionsId")
+                        .HasForeignKey("professionsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

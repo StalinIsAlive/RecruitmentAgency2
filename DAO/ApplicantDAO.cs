@@ -1,6 +1,6 @@
 ﻿namespace recruitment_agency.DAO
 {
-    public class Employer
+    public class ApplicantDAO
     {
     }
 }
