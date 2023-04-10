@@ -1,0 +1,25 @@
+﻿@{
+    List<Vacancy> vacancies = ViewData["vacancies"] != null ? (List<Vacancy>)ViewData["vacancies"] : null;
+    List<Employer> employers = ViewData["employer"] != null ? (List<Employer>)ViewData["employer"] : null;
+    List<Professions> profession = ViewData["profession"] != null ? (List<Professions>)ViewData["profession"] : null;
+}
+<link rel="stylesheet" href="style.css">
+
+<div class="uk-width-1-1@l list-vacancy">
+    <div class="uk-flex uk-flex-column uk-width-1-1 list">
+        @foreach(var item in vacancies)
+        {
+            <div class="uk-card uk-card-default uk-card-body uk-card-hover uk-margin-bottom list-item">
+                <a asp-action="Detail" asp-route-id="@item.Id">
+                    <div>@profession.Where(a=>a.Id==item.ProfessionsId).Select(a=>a.Name).FirstOrDefault()</div>
+                    <div>Название: @employers.Where(a=>a.Id == item.EmployerId).Select(a=>a.Name).FirstOrDefault() </div>
+                    <div>Адрес: @employers.Where(a=>a.Id == item.EmployerId).Select(a=>a.Address).FirstOrDefault()</div>
+                    <div>Дата основания: @employers.Where(a=>a.Id == item.EmployerId).Select(a=>a.DateOfCreate).FirstOrDefault()</div>    
+                        
+                    <div>Описание: @item.Description</div>
+                    <div>Зарплата: @item.Salary</div>
+                </a>
+            </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,30 @@
+﻿@{ //отправленные отклики
+    List<Resume> resumes= ViewData["resumeRes"] != null ? (List<Resume>)ViewData["resumeRes"] : null;
+    List<ResponseResume> responseResumes= ViewData["responseRes"] != null ? (List<ResponseResume>)ViewData["responseRes"] : null;
+    List<Employer> employers = ViewData["employerRes"] != null ? (List<Employer>)ViewData["employerRes"] : null;
+}
+
+<link rel="stylesheet" href="style.css">
+
+<div class="uk-width-1-1@l list-vacancy">
+    <div class="uk-flex uk-flex-column uk-width-1-1 list">
+        @foreach (var item in responseResumes)
+        {
+            <form asp-action="ApprovedResume">
+            <div class="uk-card uk-card-default uk-card-body uk-card-hover uk-margin-bottom list-item">
+                    <div>Резюме: @resumes.Where(a=>a.Id==item.ResumeId).Select(a=>a.Description).FirstOrDefault()</div>
+                    <div>Название: @employers.Where(a=>a.Id == item.EmployerId).Select(a=>a.Name).FirstOrDefault() </div>
+                    <div>Адрес: @employers.Where(a=>a.Id == item.EmployerId).Select(a=>a.Address).FirstOrDefault()</div>
+                    <div>Дата основания: @employers.Where(a=>a.Id == item.EmployerId).Select(a=>a.DateOfCreate).FirstOrDefault()</div>
+                    <div>Описание отклика: @item.Description</div>
+                <div>Описание резюме: @resumes.Where(a=>a.Id==item.ResumeId).Select(a=>a.Description).FirstOrDefault()</div>
+                    <div>
+                        <input type="hidden" value="@item.Id" name="id"/>
+                        <input type="submit" class="uk-button uk-button-primary" name="yes" value="Принять отклик">
+                        <input type="submit" class="uk-button uk-button-default" name="no" value="Отклонить">
+                    </div>
+            </div>
+            </form>
+        }
+    </div>
+</div>

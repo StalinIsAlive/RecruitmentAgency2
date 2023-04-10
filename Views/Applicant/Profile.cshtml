@@ -1,0 +1,101 @@
+﻿@{
+    Applicant applicant= ViewData["applicant"] != null ? (Applicant)ViewData["applicant"] : null;
+    List<Professions> professions = ViewData["professions"] != null ? (List<Professions>)ViewData["professions"] : null;
+    List<ListWorks> listWorks = ViewData["listWorks"] != null ? (List<ListWorks>)ViewData["listWorks"] : null;
+}
+
+  <link rel="stylesheet" href="style.css">
+
+  <div class="uk-card uk-card-large uk-card-hover uk-card-body uk-card-default">
+    <div class="uk-card-title">ФИО: @applicant.LastName @applicant.FirstName @applicant.SecondName</div>
+    <div>Адрес: @applicant.Address</div>
+    <div>Телефон: @applicant.Phone</div>
+    <div>Почта: @applicant.Email</div>
+    <div>Образование: @applicant.Education</div>
+    <div >
+        Список работ:
+        <div class="uk-flex uk-margin-right uk-flex-wrap uk-width-1-1 list">
+            @foreach (var item in listWorks)
+            {
+            <div class="uk-card uk-card-default uk-card-body uk-card-hover uk-margin-bottom">
+                <div>Название компании: @item.CompanyName</div>
+                <div>Дата начала работы: @item.DateStart</div>
+                <div>Дата окончания работы: @item.DateEnd</div>
+                <div>Профессия: @item.Profession</div>
+                <div>Описание: @item.Description</div>
+            </div>
+            }
+        </div>
+     </div>
+    <div class="buttons">
+      <button uk-toggle="target:#editInfo" class="uk-button">Редактировать информацию</button>
+      <button uk-toggle="target:#addWork" class="uk-button">Добавить место работы</button>
+        <button uk-toggle="target:#editPass" class="uk-button">Изменить пароль</button>
+    </div>
+  </div>
+
+<div id="editInfo" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body">
+        <form asp-action="ProfileEdit">
+            <h2 class="uk-modal-title">Изменение профиля</h2>
+            <label>Фамилия</label>
+            <input class="uk-input uk-margin-bottom" placeholder="Фамилия" name="LastName" value="@applicant.LastName" />
+            <label>Имя</label>
+            <input class="uk-input uk-margin-bottom" placeholder="Имя" name="FirstName" value="@applicant.FirstName" />
+            <label>Отчество</label>
+            <input class="uk-input uk-margin-bottom" placeholder="Отчество" name="SecondName" value="@applicant.SecondName" />
+            <label>Адрес</label>
+            <input class="uk-input uk-margin-bottom" placeholder="Адрес" name="Address" value="@applicant.Address" />
+            <label>Образование</label>
+            <input class="uk-input uk-margin-bottom" type="text" name="Education" value="@applicant.Education" />
+            <label>Почта</label>
+            <input class="uk-input uk-margin-bottom" name="Email" value="@applicant.Email" />
+            <label>Телефон</label>
+            <input class="uk-input uk-margin-bottom" type="number" name="Phone" value="@applicant.Phone" />
+            <input type="hidden" name="" value="" />
+            <div class="uk-margin-top">
+                <button class="uk-button uk-button-primary" type="submit">Сохранить изменения</button>
+                <button class="uk-button uk-modal-close">Отмена</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div id="editPass" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body">
+        <form asp-action="EditPass">
+            <h2 class="uk-modal-title">Изменение пароля</h2>
+            <label>Новый пароль</label>
+            <input class="uk-input uk-margin-bottom" placeholder="Новый пароль" name="Password"/>
+            
+            <div class="uk-margin-top">
+                <button class="uk-button uk-button-primary" type="submit">Сохранить изменения</button>
+                <button class="uk-button uk-modal-close">Отмена</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div id="addWork" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body">
+        <form asp-action="AddWork">
+            <h2 class="uk-modal-title">Добавить место работы</h2>
+            <label>Название компании</label>
+            <input class="uk-input uk-margin-bottom" placeholder="Название компании" name="CompanyName" />
+            <label>Дата начала</label>
+            <input class="uk-input uk-margin-bottom" type="date" placeholder="Дата начала" name="DateStart" />
+            <label>Дата конца</label>
+            <input class="uk-input uk-margin-bottom" type="date" placeholder="Дата конца" name="DateEnd" />
+            <label>Описание</label>
+            <input class="uk-input uk-margin-bottom" placeholder="Описание" name="Description" />
+            <label>Должность</label>
+            <input class="uk-input uk-margin-bottom" placeholder="Должность" name="Post" />
+            <label>Профессия</label>
+            <input class="uk-input uk-margin-bottom" placeholder="Профессия" name="Profession" />
+            <div class="uk-margin-top">
+                <button class="uk-button uk-button-primary" type="submit">Добавить</button>
+                <button class="uk-button uk-modal-close">Отмена</button>
+            </div>
+        </form>
+    </div>
+</div>

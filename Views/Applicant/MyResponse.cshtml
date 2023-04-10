@@ -1,0 +1,35 @@
+﻿@{
+    //отправленные отклики
+    List<Vacancy> vacancies = ViewData["vacancy"] != null ? (List<Vacancy>)ViewData["vacancy"] : null;
+    List<Employer> employers= ViewData["employer"] != null ? (List<Employer>)ViewData["employer"] : null;
+    List<ResponseVacancies> responseVacancies = ViewData["responseRes"] != null ? (List<ResponseVacancies>)ViewData["responseRes"] : null;
+}
+
+<link rel="stylesheet" href="style.css">
+
+<div class="uk-width-1-1@l list-vacancy">
+    <div class="uk-flex uk-flex-column uk-width-1-1 list">
+        @foreach (var item in responseVacancies)
+        {
+            <div class="uk-card uk-card-default uk-card-body uk-card-hover uk-margin-bottom list-item">
+                <div>Резюме: @vacancies.Where(a=>a.Id==item.VacancyId).Select(a=>a.Description).FirstOrDefault()</div>
+                <div>
+                    Информация: @employers.Where(a=> a.Id == Convert.ToInt32(vacancies.Where(a=>a.Id==item.VacancyId).Select(a=>a.EmployerId).FirstOrDefault()) ).Select(a=>a.Name).FirstOrDefault()
+                    @employers.Where(a=> a.Id == Convert.ToInt32(vacancies.Where(a=>a.Id==item.VacancyId).Select(a=>a.EmployerId).FirstOrDefault()) ).Select(a=>a.Address).FirstOrDefault()
+                    @employers.Where(a=> a.Id == Convert.ToInt32(vacancies.Where(a=>a.Id==item.VacancyId).Select(a=>a.EmployerId).FirstOrDefault()) ).Select(a=>a.DateOfCreate).FirstOrDefault()
+                </div>
+                <div>Описание отклика: @item.Description</div>
+                <div>
+                    @if(item.isApproved)
+                    {
+                        <p style="color:green">Заявка принята</p>
+                    } 
+                    else if (item.isNotApproved)
+                    {
+                        <p style="color:red">Заявка отклонена</p>
+                    }
+                </div>
+            </div>
+        }
+    </div>
+</div>

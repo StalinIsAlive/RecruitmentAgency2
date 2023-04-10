@@ -1,0 +1,81 @@
+﻿@{
+    List<Professions> profession = ViewData["profession"] != null ? (List<Professions>)ViewData["profession"] : null;
+    List<Resume> resumes= ViewData["resume"] != null ? (List<Resume>)ViewData["resume"] : null;
+}
+
+<link rel="stylesheet" href="style.css">
+
+<div>
+    <h3>Мои резюме</h3>
+    <button uk-toggle="target:#addResume" type="button" class="uk-button uk-button-primary uk-margin-bottom">Добавить резюме</button>
+</div>
+<div class="uk-width-1-1@l list-vacancy">
+    <div class="uk-flex uk-flex-column uk-width-1-1 list">
+        @foreach(var item in resumes){
+        <div class="uk-card uk-card-default uk-card-body uk-card-hover uk-margin-bottom list-item">
+            <div>Описание: @item.Description</div>
+            <div>Зарплата: @item.Salary</div>
+                <div>Видимость: @if (item.isVisible) { 
+                    <div>доступна</div>
+                } else {
+                    <div>Недоступна</div>   
+                }</div>
+                <div>
+                    Профессия: @profession.Where(a=>a.Id==item.ProfessionsId).Select(a=>a.Name).FirstOrDefault()
+                </div>
+                <div class="buttons">
+                <button uk-toggle="target:#editResume_@item.Id" class="uk-button uk-button-primary">Редактировать</button>
+                <a asp-action="ResumeDelete" asp-route-id="@item.Id" class="uk-button uk-button-danger">Удалить</a>
+            </div>
+        </div>
+            <div id="editResume_@item.Id" uk-modal>
+                <div class="uk-modal-dialog uk-modal-body">
+                    <form asp-action="ResumeEdit">
+                        <h2 class="uk-modal-title">Создание резюме</h2>
+                        <input class="uk-input uk-margin-bottom" placeholder="Описание" name="Description" value="@item.Description"/>
+                        <input class="uk-input uk-margin-bottom" placeholder="Зарплата" name="Salary" value="@item.Salary"/>
+                        <select title="edit" class="uk-select uk-margin-bottom" name="ProfessionsId">
+                            <option value=""></option>
+                            @foreach (var value in profession)
+                            {
+                                <option value="@value.Id">@value.Name</option>
+                            }
+                        </select>
+                        <label class="uk-margin-bottom">
+                            Видна другим пользователям?
+                            <input class="uk-checkbox" type="checkbox" placeholder="Видна другим пользователям?" name="isVisible" value="true" />
+                        </label>
+                        <input type="hidden" name="Id" value="@item.Id"/>
+                        <div class="uk-margin-top">
+                            <button class="uk-button uk-button-primary" type="submit">Сохранить изменения</button>
+                            <button class="uk-button uk-modal-close">Отмена</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<div id="addResume" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body">
+        <form asp-action="ResumeAdd">
+            <h2 class="uk-modal-title">Создание резюме</h2>
+            <input class="uk-input uk-margin-bottom" placeholder="Описание" name="Description"/>
+            <input class="uk-input uk-margin-bottom" placeholder="Зарплата" name="Salary"/>
+            <select title="add" class="uk-select uk-margin-bottom" name="ProfessionsId">
+                <option value=""></option>
+                @foreach(var item in profession){
+                <option value="@item.Id">@item.Name</option>
+                }
+            </select>
+            <label class="uk-margin-bottom">Видна другим пользователям?
+                <input class="uk-checkbox" type="checkbox" placeholder="Видна другим пользователям?" name="isVisible" value="true"/>
+            </label>
+            <div class="uk-margin-top">
+                <button class="uk-button uk-button-primary" type="submit">Создать</button>
+                <button class="uk-button uk-modal-close">Отмена</button>
+            </div>
+         </form>
+    </div>
+</div>

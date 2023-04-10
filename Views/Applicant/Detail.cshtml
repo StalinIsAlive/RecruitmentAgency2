@@ -1,0 +1,51 @@
+﻿@{
+    Vacancy vacancy = ViewData["vacancy"] != null ? (Vacancy)ViewData["vacancy"] : null;
+    Employer employer= ViewData["employer"] != null ? (Employer)ViewData["employer"] : null;
+    Professions profession = ViewData["profession"] != null ? (Professions)ViewData["profession"] : null;
+   // List<ListWorks> listWorks = ViewData["listWorks"] != null ? (List<ListWorks>)ViewData["listWorks"] : null;
+}
+
+<link rel="stylesheet" href="style.css">
+
+<div class="uk-child-width-1-1@s">
+    <div>
+        <div class="uk-card uk-card-large uk-card-hover uk-card-body uk-card-default">
+            <h3 class="uk-card-title">@profession.Name</h3>
+            <div>
+                Желаемая зароботная плата: @vacancy.Salary
+            </div>
+            <div>
+                Описание: @vacancy.Description
+            </div>
+            <div> Название: @employer.Name</div>
+            <div>
+                Адрес: @employer.Address
+            </div>
+            <div>Дата основания: @employer.DateOfCreate</div>
+            
+            <div>
+                Телефон: @employer.Phone
+            </div>
+            <div>
+                Почта: @employer.Email
+            </div>
+            <div>
+                <button uk-toggle="target:#descriptionInput" type="button" class="uk-button uk-button-primary">Откликнуться</button>
+                @*<a asp-action="ResponseResume" asp-route-id="@resumes.Id" class="uk-button uk-button-primary">Откликнуться</a>*@
+                <a asp-action="Index" id="" class="uk-button uk-button-default">Назад</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="descriptionInput" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body" asp-route-id="@vacancy.Id">
+        <form asp-action="ResponseVacancy" >
+        <h2 class="uk-modal-title">Отправка отклика на резюме</h2>
+        <input type="text" class="uk-input uk-margin-bottom" placeholder="Текст приглашение" name="description"/>
+        <input type="hidden" class="uk-input" placeholder="Текст приглашение" name="vacancy" value="@vacancy.Id" />
+        <input type="submit" class="uk-button uk-button-primary" placeholder="Откликнуться" />
+        <a type="submit" class="uk-button uk-button-default uk-modal-close">Закрыть</a>
+        </form>
+    </div>
+</div>
