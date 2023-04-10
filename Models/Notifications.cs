@@ -7,6 +7,6 @@
         public string Description { get; set; }
         //вторичный ключ отклика
         public int ResponseWorkId { get; set; }
-        public ResponseWork responseWork { get; set; }
+        public ResponseResume responseWork { get; set; }
     }
 }

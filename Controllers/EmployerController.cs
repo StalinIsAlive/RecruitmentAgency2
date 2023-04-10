@@ -19,64 +19,92 @@ namespace recruitment_agency.Controllers
 
             ViewData["resumes"] = _context.resumes.Where(a=>a.isVisible).ToList();
             ViewData["profession"] = _context.professions.ToList();
+            ViewData["applicant"] = _context.applicants.ToList();
             return View();
         }
 
         public IActionResult Detail(int id) //resume id
         {
-            //int id = 0;
-            // = id;
-            //id = Convert.ToInt32(Request.RouteValues["id"]);
-            //Resume resume = 
-            ViewData["resume"] = _context.resumes.Where(a => a.Id == id).FirstOrDefault();
-            ViewData["id"] = id;
+            Resume resume = _context.resumes.Where(a => a.Id == id).FirstOrDefault();
+            Professions professions = _context.professions.Where(a => a.Id == resume.ProfessionsId)
+                .FirstOrDefault();
+            Applicant applicant = _context.applicants.Where(a => a.Id == resume.ApplicantId)
+                .FirstOrDefault();
+            List<ListWorks> listWorks = _context.listWorks.Where(a => a.ApplicantId==applicant.Id).ToList();
+            ViewData["resume"] = resume;
+            ViewData["profession"] = professions;
+            ViewData["applicant"] = applicant;
+            ViewData["listWorks"]=listWorks;
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> ResponseResume (int id, string description) //при нажатии отклик на вакансию
+        public async Task<IActionResult> ResponseResume () //при нажатии отклик на вакансию
         {
-            ResponseWork responseWork = new ResponseWork();
-            responseWork.Id = id;
-            responseWork.Description = description;
+            ResponseResume responseResume = new ResponseResume();
+            responseResume.ResumeId = Convert.ToInt32(Request.Form["resume"]);
+            responseResume.EmployerId = 2; //заменить на получение из куки
+            responseResume.Description = Request.Form["description"]; //заменить на переменную запроса
 
-            _context.responseWorks.Add(responseWork);
+            _context.responseResumes.Add(responseResume);
             await _context.SaveChangesAsync();
             return Redirect("~/Employer/Index");
         }
 
-        public IActionResult Profile (int id) //user id
+        public IActionResult Profile () //user id
         {
-            ViewData["profileInfo"] = _context.employers.Where(a=> a.Id==id).FirstOrDefault();
+            //замена
+            Employer employer = _context.employers.Where(a => a.Id == 2).FirstOrDefault();
+            ViewData["employer"] = employer;
+            ViewData["companyType"] = _context.companyTypes.Where(a=>a.Id==employer.CompanyType).FirstOrDefault();
+            ViewData["companyTypeList"] = _context.companyTypes.ToList();
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> ProfileEdit (int id, [Bind("Name,Description,Salary,Post,isVisible,Experience,EmployerId,ProfessionId")] Employer employer)
+        public async Task<IActionResult> ProfileEdit ([Bind("Name,Address,DateOfCreate,Email,Phone,CompanyType")] Employer employer)
         {
-            employer.Id = id;
+            //замена
+            Employer employer1 = _context.employers.Where(a => a.Id == 2).FirstOrDefault();
+            employer1.Name = employer.Name;
+            employer1.Address = employer.Address;
+            employer1.DateOfCreate= employer.DateOfCreate;
+            employer1.Email= employer.Email;
+            employer1.Phone= employer.Phone;
+            employer1.CompanyType = employer.CompanyType;
+
+            _context.employers.Update(employer1);
+            await _context.SaveChangesAsync();
+            return Redirect("~/Employer/Profile");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> EditPass(string Password)
+        { //замена
+            Employer employer = _context.employers.Where(a => a.Id == 2).FirstOrDefault();
+            employer.Password = Password;
             _context.employers.Update(employer);
             await _context.SaveChangesAsync();
-            return Redirect("~/Employer/Vacancy");
+            return Redirect("~/Employer/Profile");
         }
 
-        public IActionResult Vacancy(int id) //user id
-        {
-            ViewData["vacancy"] = _context.vacancies.Where(a => a.EmployerId == id).FirstOrDefault();
-            
+        public IActionResult Vacancy() //user id
+        {//изменить на userId cookie
+            ViewData["vacancy"] = _context.vacancies.Where(a => a.EmployerId == 2).ToList();
+            ViewData["profession"] = _context.professions.ToList();
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> VacancyEdit (int id, [Bind("Name,Description,Salary,Post,isVisible,Experience,EmployerId,ProfessionId")] Vacancy vacancy)
+        public async Task<IActionResult> VacancyEdit ([Bind("Id,Name,Description,Salary,Post,isVisible,Experience,EmployerId,ProfessionsId")] Vacancy vacancy)
         {
-            vacancy.Id = id;
+            vacancy.EmployerId= 2;
             _context.vacancies.Update(vacancy);
             await _context.SaveChangesAsync();
             return Redirect("~/Employer/Vacancy");
         }
 
-        [HttpPost]
+        
         public async Task<IActionResult> VacancyDelete(int id)
         {
             Vacancy vacancy = new Vacancy();
@@ -87,12 +115,84 @@ namespace recruitment_agency.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> VacancyAdd(int id, [Bind("Name,Description,Salary,Post,isVisible,Experience,EmployerId,ProfessionId")] Vacancy vacancy)
+        public async Task<IActionResult> VacancyAdd([Bind("Name,Description,Salary,Post,isVisible,Experience,EmployerId,ProfessionId")] Vacancy vacancy)
         {
-            vacancy.Id = id;
+            vacancy.ProfessionsId =Convert.ToInt32(Request.Form["ProfessionsId"]);
+            vacancy.EmployerId= 2; //замена
             _context.vacancies.Add(vacancy);
             await _context.SaveChangesAsync();
             return Redirect("~/Employer/Vacancy");
         }
+
+        //отправленные отклики
+        public IActionResult ResponseList()
+        {
+            List<Vacancy> vacancies = _context.vacancies.Where(a=>a.EmployerId==2).ToList();
+            List<ResponseVacancies> responseVacancies = new List<ResponseVacancies>();
+            foreach (var item in vacancies)
+            {
+                if(_context.responseVacancies.Where(a => a.VacancyId == item.Id && a.isApproved == false && a.isNotApproved == false).FirstOrDefault()!=null) { 
+                responseVacancies.Add(_context.responseVacancies.Where(a => a.VacancyId == item.Id && a.isApproved==false && a.isNotApproved==false).FirstOrDefault());
+                } else
+                {
+                    continue;
+                }
+            }
+
+            List<Applicant> applicants= _context.applicants.ToList();
+
+            ViewData["vacancyRes"] = vacancies;
+            ViewData["responseRes"] = responseVacancies;
+            ViewData["applicantRes"] = applicants;
+
+            return View();
+        }
+
+        //принятие вакансии
+        [HttpPost]
+        public async Task<IActionResult> ApprovedVacancy(int id,string yes,string no)
+        {
+            ResponseVacancies response = _context.responseVacancies.Where(a=>a.Id==id).FirstOrDefault();
+            
+            if(yes!=null)
+            {
+                response.isApproved = true;
+            } else if (no!=null)
+            {
+                response.isNotApproved = true;
+
+            }
+            _context.responseVacancies.Update(response);
+            await _context.SaveChangesAsync();
+            return Redirect("~/Employer/ResponseList");
+        }
+
+        //мои отклики
+        public IActionResult MyResponse()
+        { // замена
+            List<Resume> resumes = _context.resumes.ToList();
+            List<ResponseResume> responseResumes = _context.responseResumes.Where(a=>a.EmployerId==2).ToList();
+            
+/*            foreach (var item in res)
+            {
+                if (_context.responseVacancies.Where(a => a.VacancyId == item.Id && a.isApproved == false && a.isNotApproved == false).FirstOrDefault() != null)
+                {
+                    responseVacancies.Add(_context.responseVacancies.Where(a => a.VacancyId == item.Id && a.isApproved == false && a.isNotApproved == false).FirstOrDefault());
+                }
+                else
+                {
+                    continue;
+                }
+            }*/
+
+            List<Applicant> applicants = _context.applicants.ToList();
+
+            ViewData["resume"] = resumes;
+            ViewData["responseRes"] = responseResumes;
+            ViewData["applicantRes"] = _context.applicants.ToList();
+
+            return View();
+        }
+
     }
 }

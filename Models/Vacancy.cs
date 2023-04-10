@@ -15,7 +15,7 @@
         public Employer employer { get; set; }
 
         //вторичный ключ профессии
-        public int ProfessionId { get; set; }
+        public int ProfessionsId { get; set; }
         public Professions professions { get; set; }
         
     }

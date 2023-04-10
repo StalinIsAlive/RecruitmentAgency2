@@ -1,0 +1,35 @@
+﻿@{
+    //отправленные отклики
+    List<Resume> resumes = ViewData["resume"] != null ? (List<Resume>)ViewData["resume"] : null;
+    List<Applicant> applicant= ViewData["applicantRes"] != null ? (List<Applicant>)ViewData["applicantRes"] : null;
+    List<ResponseResume> responseResumes = ViewData["responseRes"] != null ? (List<ResponseResume>)ViewData["responseRes"] : null;
+}
+
+<link rel="stylesheet" href="style.css">
+
+<div class="uk-width-1-1@l list-vacancy">
+    <div class="uk-flex uk-flex-column uk-width-1-1 list">
+        @foreach (var item in responseResumes)
+        {
+            <div class="uk-card uk-card-default uk-card-body uk-card-hover uk-margin-bottom list-item">
+                <div>Резюме: @resumes.Where(a=>a.Id==item.ResumeId).Select(a=>a.Description).FirstOrDefault()</div>
+                <div>
+                    ФИО: @applicant.Where(a=> a.Id == Convert.ToInt32(resumes.Where(a=>a.Id==item.ResumeId).Select(a=>a.ApplicantId).FirstOrDefault()) ).Select(a=>a.LastName).FirstOrDefault()
+                    @applicant.Where(a=> a.Id == Convert.ToInt32(resumes.Where(a=>a.Id==item.ResumeId).Select(a=>a.ApplicantId).FirstOrDefault()) ).Select(a=>a.FirstName).FirstOrDefault()
+                    @applicant.Where(a=> a.Id == Convert.ToInt32(resumes.Where(a=>a.Id==item.ResumeId).Select(a=>a.ApplicantId).FirstOrDefault()) ).Select(a=>a.SecondName).FirstOrDefault()
+                </div>
+                <div>Описание отклика: @item.Description</div>
+                <div>
+                    @if(item.isApproved)
+                    {
+                        <p style="color:green">Заявка принята</p>
+                    } 
+                    else if (item.isNotApproved)
+                    {
+                        <p style="color:red">Заявка отклонена</p>
+                    }
+                </div>
+            </div>
+        }
+    </div>
+</div>

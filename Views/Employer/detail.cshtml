@@ -1,6 +1,8 @@
 ﻿@{
     Resume resumes = ViewData["resume"] != null ? (Resume)ViewData["resume"] : null;
-    Object id = ViewData["id"];
+    Applicant applicants = ViewData["applicant"] != null ? (Applicant)ViewData["applicant"] : null;
+    Professions profession = ViewData["profession"] != null ? (Professions)ViewData["profession"] : null;
+    List<ListWorks> listWorks = ViewData["listWorks"] != null ? (List<ListWorks>)ViewData["listWorks"] : null;
 }
 
 <link rel="stylesheet" href="style.css">
@@ -8,14 +10,59 @@
 <div class="uk-child-width-1-1@s">
     <div>
         <div class="uk-card uk-card-large uk-card-hover uk-card-body uk-card-default">
-            <h3 class="uk-card-title">@id</h3>
+            <h3 class="uk-card-title">@profession.Name</h3>
             <div>
-                Lorem bla bla
+                Желаемая зароботная плата: @resumes.Salary
             </div>
             <div>
-                <button class="uk-button">Откликнуться</button>
+                Описание: @resumes.Description
+            </div>
+            <div>
+                ФИО: @applicants.LastName
+                     @applicants.FirstName
+                     @applicants.SecondName
+            </div>
+            <div>
+                Телефон: @applicants.Phone
+            </div>
+            <div>
+                Почта: @applicants.Email
+            </div>
+            <div>
+                Образование: @applicants.Education
+            </div>
+            <div >
+                Список работ:
+                <div class="uk-flex uk-margin-right uk-flex-wrap uk-width-1-1 list">
+                @foreach(var item in listWorks)
+                {
+                    <div class="uk-card uk-card-default uk-card-body uk-card-hover uk-margin-bottom">
+                        <div>Название компании: @item.CompanyName</div>
+                        <div>Дата начала работы: @item.DateStart</div>
+                        <div>Дата окончания работы: @item.DateEnd</div>
+                        <div>Профессия: @item.Profession</div>
+                        <div>Описание: @item.Description</div>
+                    </div>
+                }
+                </div>
+            </div>
+            <div>
+                <button uk-toggle="target:#descriptionInput" type="button" class="uk-button uk-button-primary">Откликнуться</button>
+                @*<a asp-action="ResponseResume" asp-route-id="@resumes.Id" class="uk-button uk-button-primary">Откликнуться</a>*@
                 <a asp-action="Index" id="" class="uk-button uk-button-default">Назад</a>
             </div>
         </div>
+    </div>
+</div>
+
+<div id="descriptionInput" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body" asp-route-id="@resumes.Id">
+        <form asp-action="ResponseResume" >
+        <h2 class="uk-modal-title">Отправка отклика на резюме</h2>
+        <input type="text" class="uk-input uk-margin-bottom" placeholder="Текст приглашение" name="description"/>
+        <input type="hidden" class="uk-input" placeholder="Текст приглашение" name="resume" value="@resumes.Id" />
+        <input type="submit" class="uk-button uk-button-primary" placeholder="Откликнуться" />
+        <a type="submit" class="uk-button uk-button-default uk-modal-close">Закрыть</a>
+        </form>
     </div>
 </div>

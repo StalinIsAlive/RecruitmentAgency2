@@ -14,10 +14,11 @@ namespace recruitment_agency.Data
         public DbSet<CompanyType> companyTypes { get; set; }
         public DbSet<Employer> employers { get; set; }
         public DbSet<ListWorks> listWorks { get; set; }
-        public DbSet<Notifications> notifications { get; set; }
+        //public DbSet<Notifications> notifications { get; set; }
         public DbSet<Professions> professions { get; set; }
-        public DbSet<ResponseWork> responseWorks { get; set; }
+        public DbSet<ResponseResume> responseResumes { get; set; }
         public DbSet<Resume> resumes { get; set; }
         public DbSet<Vacancy> vacancies { get; set; }
+        public DbSet<ResponseVacancies> responseVacancies { get; set; }
     }
 }

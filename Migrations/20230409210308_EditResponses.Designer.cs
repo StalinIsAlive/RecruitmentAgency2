@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using recruitment_agency.Data;
 
@@ -11,9 +12,10 @@ using recruitment_agency.Data;
 namespace recruitment_agency.Migrations
 {
     [DbContext(typeof(ReccruimentAgencyDbContext))]
-    partial class ReccruimentAgencyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230409210308_EditResponses")]
+    partial class EditResponses
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -259,12 +261,6 @@ namespace recruitment_agency.Migrations
                     b.Property<int>("ResumeId")
                         .HasColumnType("int");
 
-                    b.Property<bool>("isApproved")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("isNotApproved")
-                        .HasColumnType("bit");
-
                     b.HasKey("Id");
 
                     b.HasIndex("EmployerId");
@@ -272,39 +268,6 @@ namespace recruitment_agency.Migrations
                     b.HasIndex("ResumeId");
 
                     b.ToTable("responseResumes");
-                });
-
-            modelBuilder.Entity("recruitment_agency.Models.ResponseVacancies", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int>("ApplicantId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("VacancyId")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("isApproved")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("isNotApproved")
-                        .HasColumnType("bit");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ApplicantId");
-
-                    b.HasIndex("VacancyId");
-
-                    b.ToTable("responseVacancies");
                 });
 
             modelBuilder.Entity("recruitment_agency.Models.Resume", b =>
@@ -366,7 +329,7 @@ namespace recruitment_agency.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ProfessionsId")
+                    b.Property<int>("ProfessionId")
                         .HasColumnType("int");
 
                     b.Property<string>("Salary")
@@ -376,11 +339,14 @@ namespace recruitment_agency.Migrations
                     b.Property<bool>("isVisible")
                         .HasColumnType("bit");
 
+                    b.Property<int>("professionsId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("EmployerId");
 
-                    b.HasIndex("ProfessionsId");
+                    b.HasIndex("professionsId");
 
                     b.ToTable("vacancies");
                 });
@@ -437,25 +403,6 @@ namespace recruitment_agency.Migrations
                     b.Navigation("resume");
                 });
 
-            modelBuilder.Entity("recruitment_agency.Models.ResponseVacancies", b =>
-                {
-                    b.HasOne("recruitment_agency.Models.Applicant", "applicant")
-                        .WithMany()
-                        .HasForeignKey("ApplicantId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("recruitment_agency.Models.Vacancy", "vacancy")
-                        .WithMany()
-                        .HasForeignKey("VacancyId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("applicant");
-
-                    b.Navigation("vacancy");
-                });
-
             modelBuilder.Entity("recruitment_agency.Models.Resume", b =>
                 {
                     b.HasOne("recruitment_agency.Models.Applicant", "applicant")
@@ -485,7 +432,7 @@ namespace recruitment_agency.Migrations
 
                     b.HasOne("recruitment_agency.Models.Professions", "professions")
                         .WithMany()
-                        .HasForeignKey("ProfessionsId")
+                        .HasForeignKey("professionsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using recruitment_agency.Data;
 
@@ -11,9 +12,10 @@ using recruitment_agency.Data;
 namespace recruitment_agency.Migrations
 {
     [DbContext(typeof(ReccruimentAgencyDbContext))]
-    partial class ReccruimentAgencyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230410080231_CreateResponceVacancy")]
+    partial class CreateResponceVacancy
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -259,12 +261,6 @@ namespace recruitment_agency.Migrations
                     b.Property<int>("ResumeId")
                         .HasColumnType("int");
 
-                    b.Property<bool>("isApproved")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("isNotApproved")
-                        .HasColumnType("bit");
-
                     b.HasKey("Id");
 
                     b.HasIndex("EmployerId");
@@ -291,12 +287,6 @@ namespace recruitment_agency.Migrations
 
                     b.Property<int>("VacancyId")
                         .HasColumnType("int");
-
-                    b.Property<bool>("isApproved")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("isNotApproved")
-                        .HasColumnType("bit");
 
                     b.HasKey("Id");
 
