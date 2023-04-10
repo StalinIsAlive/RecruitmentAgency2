@@ -1,0 +1,19 @@
+﻿@{
+    List<Professions> professions= ViewData["profession"] != null ? (List<Professions>)ViewData["profession"] : null;
+}
+<table class="uk-table">
+    <thead>
+        <tr>
+            <th>Название</th>
+            <th>Описание</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in professions) {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Description</td>
+        </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,14 @@
+﻿<h4>Вход</h4>
+
+<hr />
+
+<div>
+    <form asp-action="Login" method="post">
+        <label>Email</label>
+        <input class="uk-input" name="Email" type="text" /> <br />
+        <label>Пароль</label>
+        <input class="uk-input" name="Password" type="password" /> <br />
+        <input type="submit" class="uk-button uk-button-primary" value="Выбрать" />
+    </form>
+    <a class="uk-button uk-button-default" asp-action="Index">Вернуться на главную</a>
+</div>

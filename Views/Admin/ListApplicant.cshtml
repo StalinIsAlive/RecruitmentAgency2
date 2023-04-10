@@ -1,0 +1,29 @@
+﻿@{
+    List<Applicant> applicants= ViewData["applicant"] != null ? (List<Applicant>)ViewData["applicant"] : null;
+}
+<table class="uk-table uk-table-divider">
+    <thead>
+        <tr>
+            <th>Фамилия</th>
+            <th>Имя</th>
+            <th>Отчество</th>
+            <th>E-mail</th>
+            <th>Телефон</th>
+            <th>Адресс</th>
+            <th>Образование</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in applicants) {
+        <tr>
+            <td>@item.LastName</td>
+            <td>@item.FirstName</td>
+            <td>@item.SecondName</td>
+            <td>@item.Email</td>
+            <td>@item.Phone</td>
+            <td>@item.Address</td>
+            <td>@item.Education</td>
+        </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,15 @@
+﻿<h4>Регистрация</h4>
+
+<hr />
+
+<div>
+    <form asp-action="Register" method="post">
+        <label>Email</label>
+        <input class="uk-input" name="Email" type="text" /> <br />
+        <label>Пароль</label>
+        <input class="uk-input" name="Password" type="password" /> <br />
+        <input type="submit" class="uk-button uk-button-primary" name="applicantName" value="Выбрать соискателя" />
+        <input type="submit" class="uk-button uk-button-primary" name="employerName" value="Выбрать работодателя" />
+    </form>
+    <a asp-action="Index">Вернуться на главную</a>
+</div>

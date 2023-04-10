@@ -43,7 +43,7 @@ namespace recruitment_agency.Controllers
         {
             ResponseResume responseResume = new ResponseResume();
             responseResume.ResumeId = Convert.ToInt32(Request.Form["resume"]);
-            responseResume.EmployerId = 2; //заменить на получение из куки
+            responseResume.EmployerId = Convert.ToInt32(Request.Cookies["userId"]); //заменить на получение из куки
             responseResume.Description = Request.Form["description"]; //заменить на переменную запроса
 
             _context.responseResumes.Add(responseResume);
@@ -54,7 +54,7 @@ namespace recruitment_agency.Controllers
         public IActionResult Profile () //user id
         {
             //замена
-            Employer employer = _context.employers.Where(a => a.Id == 2).FirstOrDefault();
+            Employer employer = _context.employers.Where(a => a.Id == Convert.ToInt32(Request.Cookies["userId"])).FirstOrDefault();
             ViewData["employer"] = employer;
             ViewData["companyType"] = _context.companyTypes.Where(a=>a.Id==employer.CompanyType).FirstOrDefault();
             ViewData["companyTypeList"] = _context.companyTypes.ToList();
@@ -65,7 +65,7 @@ namespace recruitment_agency.Controllers
         public async Task<IActionResult> ProfileEdit ([Bind("Name,Address,DateOfCreate,Email,Phone,CompanyType")] Employer employer)
         {
             //замена
-            Employer employer1 = _context.employers.Where(a => a.Id == 2).FirstOrDefault();
+            Employer employer1 = _context.employers.Where(a => a.Id == Convert.ToInt32(Request.Cookies["userId"])).FirstOrDefault();
             employer1.Name = employer.Name;
             employer1.Address = employer.Address;
             employer1.DateOfCreate= employer.DateOfCreate;
@@ -81,7 +81,7 @@ namespace recruitment_agency.Controllers
         [HttpPost]
         public async Task<IActionResult> EditPass(string Password)
         { //замена
-            Employer employer = _context.employers.Where(a => a.Id == 2).FirstOrDefault();
+            Employer employer = _context.employers.Where(a => a.Id == Convert.ToInt32(Request.Cookies["userId"])).FirstOrDefault();
             employer.Password = Password;
             _context.employers.Update(employer);
             await _context.SaveChangesAsync();
@@ -90,7 +90,7 @@ namespace recruitment_agency.Controllers
 
         public IActionResult Vacancy() //user id
         {//изменить на userId cookie
-            ViewData["vacancy"] = _context.vacancies.Where(a => a.EmployerId == 2).ToList();
+            ViewData["vacancy"] = _context.vacancies.Where(a => a.EmployerId == Convert.ToInt32(Request.Cookies["userId"])).ToList();
             ViewData["profession"] = _context.professions.ToList();
             return View();
         }
@@ -98,7 +98,7 @@ namespace recruitment_agency.Controllers
         [HttpPost]
         public async Task<IActionResult> VacancyEdit ([Bind("Id,Name,Description,Salary,Post,isVisible,Experience,EmployerId,ProfessionsId")] Vacancy vacancy)
         {
-            vacancy.EmployerId= 2;
+            vacancy.EmployerId= Convert.ToInt32(Request.Cookies["userId"]);
             _context.vacancies.Update(vacancy);
             await _context.SaveChangesAsync();
             return Redirect("~/Employer/Vacancy");
@@ -118,7 +118,7 @@ namespace recruitment_agency.Controllers
         public async Task<IActionResult> VacancyAdd([Bind("Name,Description,Salary,Post,isVisible,Experience,EmployerId,ProfessionId")] Vacancy vacancy)
         {
             vacancy.ProfessionsId =Convert.ToInt32(Request.Form["ProfessionsId"]);
-            vacancy.EmployerId= 2; //замена
+            vacancy.EmployerId= Convert.ToInt32(Request.Cookies["userId"]); //замена
             _context.vacancies.Add(vacancy);
             await _context.SaveChangesAsync();
             return Redirect("~/Employer/Vacancy");
@@ -171,7 +171,7 @@ namespace recruitment_agency.Controllers
         public IActionResult MyResponse()
         { // замена
             List<Resume> resumes = _context.resumes.ToList();
-            List<ResponseResume> responseResumes = _context.responseResumes.Where(a=>a.EmployerId==2).ToList();
+            List<ResponseResume> responseResumes = _context.responseResumes.Where(a=>a.EmployerId== Convert.ToInt32(Request.Cookies["userId"])).ToList();
             
 /*            foreach (var item in res)
             {

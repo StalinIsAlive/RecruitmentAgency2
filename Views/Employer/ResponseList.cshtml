@@ -1,4 +1,5 @@
 ﻿@{ //отправленные отклики
+    Layout = "_LayoutEmployer";
     List<Vacancy> vacancies = ViewData["vacancyRes"] != null ? (List<Vacancy>)ViewData["vacancyRes"] : null;
     List<Applicant> applicant = ViewData["applicantRes"] != null ? (List<Applicant>)ViewData["applicantRes"] : null;
     List<ResponseVacancies> responseVacancies = ViewData["responseRes"] != null ? (List<ResponseVacancies>)ViewData["responseRes"] : null;

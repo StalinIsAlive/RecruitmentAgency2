@@ -268,3 +268,5 @@ D:\vs_project\recruitment_agency\obj\Debug\net6.0\refint\recruitment_agency.dll
 D:\vs_project\recruitment_agency\obj\Debug\net6.0\recruitment_agency.pdb
 D:\vs_project\recruitment_agency\obj\Debug\net6.0\recruitment_agency.genruntimeconfig.cache
 D:\vs_project\recruitment_agency\obj\Debug\net6.0\ref\recruitment_agency.dll
+D:\vs_project\recruitment_agency\obj\Debug\net6.0\scopedcss\Views\Shared\_LayoutApplicant.cshtml.rz.scp.css
+D:\vs_project\recruitment_agency\obj\Debug\net6.0\scopedcss\Views\Shared\_LayoutEmployer.cshtml.rz.scp.css

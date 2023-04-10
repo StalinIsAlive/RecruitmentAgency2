@@ -1,0 +1,25 @@
+﻿@{
+    List<Employer> employers= ViewData["employer"] != null ? (List<Employer>)ViewData["employer"] : null;
+}
+<table class="uk-table uk-table-divider">
+    <thead>
+        <tr>
+            <th>Название</th>
+            <th>Адрес</th>
+            <th>Дата основания</th>
+            <th>Email</th>
+            <th>Телефон</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in employers) {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Address</td>
+            <td>@item.DateOfCreate</td>
+            <td>@item.Email</td>
+            <td>@item.Phone</td>
+        </tr>
+        }
+    </tbody>
+</table>
