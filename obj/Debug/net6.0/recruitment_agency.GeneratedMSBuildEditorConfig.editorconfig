@@ -9,121 +9,121 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = recruitment_agency
 build_property.RootNamespace = recruitment_agency
-build_property.ProjectDir = D:\vs_project\recruitment_agency\
+build_property.ProjectDir = C:\Users\foxym\source\repos\agency3\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\vs_project\recruitment_agency
+build_property.MSBuildProjectDirectory = C:\Users\foxym\source\repos\agency3
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/vs_project/recruitment_agency/Views/Admin/AddProfession.cshtml]
+[C:/Users/foxym/source/repos/agency3/Views/Admin/AddProfession.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRkUHJvZmVzc2lvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/vs_project/recruitment_agency/Views/Admin/Index.cshtml]
+[C:/Users/foxym/source/repos/agency3/Views/Admin/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/vs_project/recruitment_agency/Views/Admin/ListApplicant.cshtml]
+[C:/Users/foxym/source/repos/agency3/Views/Admin/ListApplicant.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cTGlzdEFwcGxpY2FudC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/vs_project/recruitment_agency/Views/Admin/ListEmployer.cshtml]
+[C:/Users/foxym/source/repos/agency3/Views/Admin/ListEmployer.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cTGlzdEVtcGxveWVyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/vs_project/recruitment_agency/Views/Admin/ListProfession.cshtml]
+[C:/Users/foxym/source/repos/agency3/Views/Admin/ListProfession.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cTGlzdFByb2Zlc3Npb24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/vs_project/recruitment_agency/Views/Applicant/Detail.cshtml]
+[C:/Users/foxym/source/repos/agency3/Views/Applicant/Detail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwbGljYW50XERldGFpbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/vs_project/recruitment_agency/Views/Applicant/Index.cshtml]
+[C:/Users/foxym/source/repos/agency3/Views/Applicant/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwbGljYW50XEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/vs_project/recruitment_agency/Views/Applicant/MyResponse.cshtml]
+[C:/Users/foxym/source/repos/agency3/Views/Applicant/MyResponse.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwbGljYW50XE15UmVzcG9uc2UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/vs_project/recruitment_agency/Views/Applicant/Profile.cshtml]
+[C:/Users/foxym/source/repos/agency3/Views/Applicant/Profile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwbGljYW50XFByb2ZpbGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/vs_project/recruitment_agency/Views/Applicant/ResponseList.cshtml]
+[C:/Users/foxym/source/repos/agency3/Views/Applicant/ResponseList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwbGljYW50XFJlc3BvbnNlTGlzdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/vs_project/recruitment_agency/Views/Applicant/Resume.cshtml]
+[C:/Users/foxym/source/repos/agency3/Views/Applicant/Resume.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwbGljYW50XFJlc3VtZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/vs_project/recruitment_agency/Views/Employer/Detail.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZXJcRGV0YWlsLmNzaHRtbA==
+[C:/Users/foxym/source/repos/agency3/Views/Employer/detail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZXJcZGV0YWlsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/vs_project/recruitment_agency/Views/Employer/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZXJcSW5kZXguY3NodG1s
+[C:/Users/foxym/source/repos/agency3/Views/Employer/index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZXJcaW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/vs_project/recruitment_agency/Views/Employer/MyResponse.cshtml]
+[C:/Users/foxym/source/repos/agency3/Views/Employer/MyResponse.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZXJcTXlSZXNwb25zZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/vs_project/recruitment_agency/Views/Employer/Profile.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZXJcUHJvZmlsZS5jc2h0bWw=
+[C:/Users/foxym/source/repos/agency3/Views/Employer/profile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZXJccHJvZmlsZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/vs_project/recruitment_agency/Views/Employer/ResponseList.cshtml]
+[C:/Users/foxym/source/repos/agency3/Views/Employer/ResponseList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZXJcUmVzcG9uc2VMaXN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/vs_project/recruitment_agency/Views/Employer/Vacancy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZXJcVmFjYW5jeS5jc2h0bWw=
+[C:/Users/foxym/source/repos/agency3/Views/Employer/vacancy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZXJcdmFjYW5jeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/vs_project/recruitment_agency/Views/Home/Index.cshtml]
+[C:/Users/foxym/source/repos/agency3/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/vs_project/recruitment_agency/Views/Home/Privacy.cshtml]
+[C:/Users/foxym/source/repos/agency3/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/vs_project/recruitment_agency/Views/Login/Login.cshtml]
+[C:/Users/foxym/source/repos/agency3/Views/Login/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cTG9naW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/vs_project/recruitment_agency/Views/Login/Register.cshtml]
+[C:/Users/foxym/source/repos/agency3/Views/Login/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cUmVnaXN0ZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/vs_project/recruitment_agency/Views/Shared/Error.cshtml]
+[C:/Users/foxym/source/repos/agency3/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/vs_project/recruitment_agency/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/foxym/source/repos/agency3/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/vs_project/recruitment_agency/Views/_ViewImports.cshtml]
+[C:/Users/foxym/source/repos/agency3/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/vs_project/recruitment_agency/Views/_ViewStart.cshtml]
+[C:/Users/foxym/source/repos/agency3/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/vs_project/recruitment_agency/Views/Shared/_Layout.cshtml]
+[C:/Users/foxym/source/repos/agency3/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-645dude34p
 
-[D:/vs_project/recruitment_agency/Views/Shared/_LayoutApplicant.cshtml]
+[C:/Users/foxym/source/repos/agency3/Views/Shared/_LayoutApplicant.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRBcHBsaWNhbnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-3e1lautlhg
 
-[D:/vs_project/recruitment_agency/Views/Shared/_LayoutEmployer.cshtml]
+[C:/Users/foxym/source/repos/agency3/Views/Shared/_LayoutEmployer.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRFbXBsb3llci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = b-mw4hb2mbb4

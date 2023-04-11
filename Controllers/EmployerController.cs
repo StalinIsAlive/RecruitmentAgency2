@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using recruitment_agency.Data;
-using recruitment_agency.DAO;
 using recruitment_agency.Models;
 
 namespace recruitment_agency.Controllers

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\vs_project\\recruitment_agency\\recruitment_agency.csproj": {}
+    "C:\\Users\\foxym\\source\\repos\\agency3\\recruitment_agency.csproj": {}
   },
   "projects": {
-    "D:\\vs_project\\recruitment_agency\\recruitment_agency.csproj": {
+    "C:\\Users\\foxym\\source\\repos\\agency3\\recruitment_agency.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\vs_project\\recruitment_agency\\recruitment_agency.csproj",
+        "projectUniqueName": "C:\\Users\\foxym\\source\\repos\\agency3\\recruitment_agency.csproj",
         "projectName": "recruitment_agency",
-        "projectPath": "D:\\vs_project\\recruitment_agency\\recruitment_agency.csproj",
-        "packagesPath": "C:\\Users\\tigra\\.nuget\\packages\\",
-        "outputPath": "D:\\vs_project\\recruitment_agency\\obj\\",
+        "projectPath": "C:\\Users\\foxym\\source\\repos\\agency3\\recruitment_agency.csproj",
+        "packagesPath": "C:\\Users\\foxym\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\foxym\\source\\repos\\agency3\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\tigra\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\foxym\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -88,7 +88,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }
